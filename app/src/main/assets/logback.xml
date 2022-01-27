@@ -23,12 +23,10 @@
         </triggeringPolicy>
     </appender>
 
-    <!-- 文件仅记录 DEBUG 以上的 Log -->
     <logger name="ktor.application" level="DEBUG">
         <appender-ref ref="BASE_ROLL_FILE" />
     </logger>
 
-    <!-- 控制台打印全量 Log -->
     <root level="TRACE">
         <appender-ref ref="LOGCAT" />
     </root>
