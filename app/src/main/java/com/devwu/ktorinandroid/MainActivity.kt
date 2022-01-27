@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }).start(false)
 
-        // Error
+        // ERROR: call no respond
         embeddedServer(CIO, applicationEngineEnvironment {
             parentCoroutineContext = EmptyCoroutineContext + parentCoroutineContext
             log = LoggerFactory.getLogger("ktor.application")
@@ -44,6 +44,6 @@ class MainActivity : AppCompatActivity() {
                     get("/") { call.respondText { "Hello World" } }
                 }
             }
-        }).start(true)
+        }).start(false)
     }
 }
