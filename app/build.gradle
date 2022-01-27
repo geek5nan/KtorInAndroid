@@ -38,7 +38,7 @@ android {
 }
 
 dependencies {
-    var ktor_version = "2.0.0-beta-1"
+    var ktor_version = "1.6.7"
     // Embedded Server
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
