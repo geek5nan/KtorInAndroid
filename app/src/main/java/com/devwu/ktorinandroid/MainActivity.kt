@@ -10,6 +10,7 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.engine.sslConnector
 import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.callloging.CallLogging
+import io.ktor.server.plugins.cors.CORS
 import io.ktor.server.plugins.httpsredirect.HttpsRedirect
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.get
@@ -53,6 +54,10 @@ class MainActivity : AppCompatActivity() {
                 install(HttpsRedirect) {
                     permanentRedirect = false
                     sslPort = 8443
+                }
+                install(CORS) {
+                    anyHost()
+                    allowHeaders { true }
                 }
 
 
