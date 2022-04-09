@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val keyStore = KeyStore.getInstance("PKCS12")
         keyStore.load(assets.open("keystore.jks"),"qwe123".toCharArray())
-        // ERROR: java.lang.NoClassDefFoundError: Failed resolution of: Ljava/lang/management/ManagementFactory;
         embeddedServer(Netty, applicationEngineEnvironment {
             parentCoroutineContext = EmptyCoroutineContext + parentCoroutineContext
             log = LoggerFactory.getLogger("ktor.application")
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
             }
         }).start(false)
 
-        // ERROR: call no respond
 //        embeddedServer(CIO, applicationEngineEnvironment {
 //            parentCoroutineContext = EmptyCoroutineContext + parentCoroutineContext
 //            log = LoggerFactory.getLogger("ktor.application")
