@@ -3,11 +3,14 @@ package com.devwu.ktorinandroid
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.ktor.server.application.call
+import io.ktor.server.application.install
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.engine.sslConnector
 import io.ktor.server.netty.Netty
+import io.ktor.server.plugins.callloging.CallLogging
+import io.ktor.server.plugins.httpsredirect.HttpsRedirect
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
@@ -46,6 +49,13 @@ class MainActivity : AppCompatActivity() {
                 port = 8443
             }
             module {
+                install(CallLogging)
+                install(HttpsRedirect) {
+                    permanentRedirect = false
+                    sslPort = 8443
+                }
+
+
                 routing {
                     get("/") { call.respondText { "Hello World" } }
                 }
